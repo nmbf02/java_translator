@@ -1,5 +1,10 @@
 import tkinter as tk
-from tkinter import filedialog, messagebox, scrolledtext
+from tkinter import messagebox, scrolledtext
+
+from lexer import tokenize
+from parser import Parser
+from generator_js import generate_js
+from generator_cpp import generate_cpp
 
 class JavaTranslatorApp:
     def __init__(self, root):
@@ -35,7 +40,6 @@ class JavaTranslatorApp:
         self.output_text.pack(padx=10, pady=5, fill=tk.BOTH, expand=True)
 
     def translate_code(self):
-        # Obtiene el código y tipo de salida seleccionado
         java_code = self.input_text.get("1.0", tk.END).strip()
         target_language = self.output_language.get()
 
@@ -43,10 +47,28 @@ class JavaTranslatorApp:
             messagebox.showwarning("Advertencia", "Por favor ingresa código Java para traducir.")
             return
 
-        # Aquí conectaremos con el traductor real (placeholder por ahora)
-        translated_code = f"// Aquí aparecerá el código traducido a {target_language}\n\n// TODO: implementar traductor real"
-        self.output_text.delete("1.0", tk.END)
-        self.output_text.insert(tk.END, translated_code)
+        try:
+            # Fase 1: Tokenización
+            tokens = tokenize(java_code)
+
+            # Fase 2: Parsing
+            parser = Parser(tokens)
+            ast = parser.parse()
+
+            # Fase 3: Generación de código
+            if target_language == "JavaScript":
+                translated_code = generate_js(ast)
+            elif target_language == "C++":
+                translated_code = generate_cpp(ast)
+            else:
+                translated_code = "// Lenguaje no soportado."
+
+            # Mostrar resultado
+            self.output_text.delete("1.0", tk.END)
+            self.output_text.insert(tk.END, translated_code)
+
+        except Exception as e:
+            messagebox.showerror("Error", f"Ocurrió un error durante la traducción:\n\n{str(e)}")
 
 
 if __name__ == "__main__":
