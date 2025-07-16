@@ -1,4 +1,4 @@
-## ✅ Archivo: `docs/language_spec.md`
+## Archivo: `docs/language_spec.md`
 
 Este archivo explica:
 
@@ -9,18 +9,18 @@ Este archivo explica:
 
 ---
 
-### 📄 `docs/language_spec.md`
+### `docs/language_spec.md`
 
 ````markdown
 # Especificación del Lenguaje - Traductor Java a JS/C++
 
-## 🧠 Introducción
+## Introducción
 
 Este documento detalla el subconjunto del lenguaje Java que es reconocido y traducido correctamente por el sistema. También se describen las reglas de transformación hacia JavaScript y C++.
 
 ---
 
-## ✅ Estructuras Soportadas (Fase 1)
+## Estructuras Soportadas (Fase 1)
 
 Actualmente se soportan:
 
@@ -32,7 +32,7 @@ Actualmente se soportan:
 
 ---
 
-## 📌 Tipos de Datos Reconocidos
+## Tipos de Datos Reconocidos
 
 | Tipo en Java | Tipo en JavaScript | Tipo en C++     |
 |--------------|--------------------|-----------------|
@@ -44,7 +44,7 @@ Actualmente se soportan:
 
 ---
 
-## 📌 Sentencias Reconocidas
+## Sentencias Reconocidas
 
 ### 1. Declaración de Variable
 
@@ -120,7 +120,7 @@ if (x) {
 
 ---
 
-## 🚫 Limitaciones Actuales
+## Limitaciones Actuales
 
 * No se soporta `else`, `while`, `for`, `switch`, clases ni métodos todavía.
 * No hay verificación de tipos o errores semánticos.
@@ -128,7 +128,7 @@ if (x) {
 
 ---
 
-## 📁 Estructura esperada del código
+## Estructura esperada del código
 
 El código Java debe cumplir con las siguientes condiciones:
 
@@ -138,7 +138,7 @@ El código Java debe cumplir con las siguientes condiciones:
 
 ---
 
-## 📅 Próximas funcionalidades planeadas
+## Próximas funcionalidades planeadas
 
 * Soporte para `else`, `while`, `for`
 * Traducción de métodos simples
@@ -147,14 +147,14 @@ El código Java debe cumplir con las siguientes condiciones:
 
 ---
 
-## ✍ Autores
+## Autores
 
 * Traductor desarrollado por Nathaly M. Berroa F.
 * Documentación generada automáticamente como parte del sistema
 
 ---
 
-## 📄 Versión
+## Versión
 
 * v1.0 - Traducción de estructuras básicas (julio 2025)
 
